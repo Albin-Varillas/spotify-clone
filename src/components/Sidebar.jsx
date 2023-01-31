@@ -1,30 +1,30 @@
-import React from "react"
-import { Box, Divider } from "@mui/material"
-import { Link } from "react-router-dom"
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded"
-import SidebarPlaylistItem from "./SidebarPlaylistItem"
+import React from 'react'
+import { Box, Divider } from '@mui/material'
+import { Link } from 'react-router-dom'
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded'
+import SidebarPlaylistItem from './SidebarPlaylistItem'
 
 export default function Sidebar() {
     return (
         <Box
             sx={{
-                bgcolor: "Background.default",
+                bgcolor: 'Background.default',
                 width: 230,
-                height: "100%",
-                flexDirection: "column",
-                display: { xs: "none", md: "flex" },
+                height: '100%',
+                flexDirection: 'column',
+                display: { xs: 'none', md: 'flex' },
             }}
         >
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
                 <Box
                     px={3}
                     py={1}
                     sx={{
-                        color: "text.primary",
-                        fontWeight: "bold",
+                        color: 'text.primary',
+                        fontWeight: 'bold',
                         fontSize: 14,
-                        display: "flex",
-                        alignItems: "center",
+                        display: 'flex',
+                        alignItems: 'center',
                     }}
                 >
                     <HomeRoundedIcon sx={{ fontSize: 28, marginRight: 1 }} />
@@ -36,7 +36,7 @@ export default function Sidebar() {
                 <Divider />
             </Box>
 
-            <Box sx={{ flex: 1, overflowY: "auto" }}>
+            <Box sx={{ flex: 1, overflowY: 'auto' }}>
                 <SidebarPlaylistItem />
                 <SidebarPlaylistItem />
                 <SidebarPlaylistItem />
