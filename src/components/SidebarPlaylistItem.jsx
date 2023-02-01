@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
-import { color } from '@mui/system'
 
 export default function SidebarPlaylistItem({ name, id }) {
     return (
