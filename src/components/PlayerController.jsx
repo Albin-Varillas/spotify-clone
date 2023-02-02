@@ -25,23 +25,21 @@ export default function PlayerController({
         setCurrentProgress(progress / 1000)
     }, [progress])
 
-    console.log(player)
-
     return (
         <Stack
             spacing={0}
-            justifyContent="center"
-            alignItems="center"
+            justifyContent='center'
+            alignItems='center'
             sx={{ width: '100%' }}
         >
             <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
+                direction='row'
+                justifyContent='center'
+                alignItems='center'
                 spacing={1}
             >
                 <IconButton
-                    size="small"
+                    size='small'
                     sx={{ color: 'text.primary' }}
                     onClick={() => {
                         player.previousTrack()
@@ -50,7 +48,7 @@ export default function PlayerController({
                     <SkipPrevious sx={{ width: 28, height: 28 }} />
                 </IconButton>
                 <IconButton
-                    size="small"
+                    size='small'
                     sx={{ color: 'text.primary' }}
                     onClick={() => {
                         player.togglePlay()
@@ -63,7 +61,7 @@ export default function PlayerController({
                     )}
                 </IconButton>
                 <IconButton
-                    size="small"
+                    size='small'
                     sx={{ color: 'text.primary' }}
                     onClick={() => {
                         player.nextTrack()
@@ -73,20 +71,20 @@ export default function PlayerController({
                 </IconButton>
             </Stack>
             <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
+                direction='row'
+                justifyContent='center'
+                alignItems='center'
                 spacing={2}
                 sx={{ width: '75%' }}
             >
                 <Typography
-                    variant="body1"
+                    variant='body1'
                     sx={{ color: 'text.secondary', fontSize: 12 }}
                 >
                     {formatTime(currentProgress * 1000)}
                 </Typography>
                 <Slider
-                    size="medium"
+                    size='medium'
                     min={0}
                     value={currentProgress}
                     max={duration / 1000}
@@ -98,7 +96,7 @@ export default function PlayerController({
                     }}
                 />
                 <Typography
-                    variant="body1"
+                    variant='body1'
                     sx={{ color: 'text.secondary', fontSize: 12 }}
                 >
                     {formatTime(duration)}

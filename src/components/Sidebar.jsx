@@ -13,14 +13,14 @@ export default function Sidebar() {
     return (
         <Box
             sx={{
-                bgcolor: 'Background.default',
+                bgcolor: 'background.default',
                 width: 230,
                 height: '100%',
                 flexDirection: 'column',
                 display: { xs: 'none', md: 'flex' },
             }}
         >
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link to='/' style={{ textDecoration: 'none' }}>
                 <Box
                     px={3}
                     py={1}
@@ -32,7 +32,7 @@ export default function Sidebar() {
                         alignItems: 'center',
                     }}
                 >
-                    <HomeRoundedIcon sx={{ fontSize: 28, marginRight: 1 }} />
+                    <HomeRoundedIcon sx={{ fontSize: 28, marginRight: 1 }} />{' '}
                     Home
                 </Box>
             </Link>

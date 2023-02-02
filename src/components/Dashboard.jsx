@@ -45,10 +45,10 @@ export default function Dashboard() {
             <Box sx={{ flex: 1, overflowY: 'auto', display: 'flex' }}>
                 <Sidebar />
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/library" element={<div>library</div>} />
+                    <Route path='/' element={<Home />} />
+                    <Route path='/library' element={<div>library</div>} />
                     <Route
-                        path="/playlist/:id"
+                        path='/playlist/:id'
                         element={<Playlist spotifyApi={spotifyApi} />}
                     />
                 </Routes>

@@ -2,7 +2,6 @@ import { Box } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Dashboard from './components/Dashboard'
-import Home from './pages/Home'
 import Login from './pages/Login'
 import { getAccessToken } from './utils/getAccessToken'
 import { getAccessTokenFromStorage } from './utils/getAccessTokenFromStorage'
@@ -26,7 +25,7 @@ function App() {
                 <Dashboard />
             ) : (
                 <Routes>
-                    <Route path="*" element={<Login />} />
+                    <Route path='*' element={<Login />} />
                 </Routes>
             )}
         </Box>

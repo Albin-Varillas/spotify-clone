@@ -6,3 +6,7 @@ export function formatTime(ms) {
 
     return `${minutes}:${restSeconds}`
 }
+
+// 180,023 => 3:00
+// 120,000 => 2:00
+// 170,000 => 2:50

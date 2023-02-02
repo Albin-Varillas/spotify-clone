@@ -95,7 +95,7 @@ export default function Player({ spotifyApi }) {
                 >
                     <Avatar
                         src={current_track.album.images[0]?.url}
-                        variant="square"
+                        variant='square'
                         sx={{ width: 56, height: 56, marginRight: 2 }}
                     />
                     <Box>

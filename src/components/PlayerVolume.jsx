@@ -17,8 +17,8 @@ export default function PlayerVolume({ player }) {
         >
             <Stack
                 spacing={2}
-                alignItems="center"
-                direction="row"
+                alignItems='center'
+                direction='row'
                 sx={{ width: 150, color: 'text.secondary' }}
             >
                 {volume === 0 ? (

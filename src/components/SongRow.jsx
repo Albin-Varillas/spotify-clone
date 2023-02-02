@@ -37,21 +37,21 @@ export default function SongRow({ song, index, isLoading, spotifyApi }) {
                 sx={{ flex: 1, display: 'flex', alignItems: 'center', gap: 2 }}
             >
                 {isLoading ? (
-                    <Skeleton variant="rectangular" width={40} height={40} />
+                    <Skeleton variant='rectangular' width={40} height={40} />
                 ) : (
-                    <Avatar variant="square" src={song.album.images[0]?.url} />
+                    <Avatar variant='square' src={song.album.images[0]?.url} />
                 )}
                 <Box sx={{ ml: 1 }}>
                     <Typography sx={{ fontSize: 16, color: 'text.primary' }}>
                         {isLoading ? (
-                            <Skeleton variant="text" width={130} height={24} />
+                            <Skeleton variant='text' width={130} height={24} />
                         ) : (
                             song.name
                         )}
                     </Typography>
                     <Typography sx={{ fontSize: 12, color: 'text.secondary' }}>
                         {isLoading ? (
-                            <Skeleton variant="text" width={50} height={18} />
+                            <Skeleton variant='text' width={50} height={18} />
                         ) : (
                             song.artists[0].name
                         )}
@@ -67,7 +67,7 @@ export default function SongRow({ song, index, isLoading, spotifyApi }) {
                 }}
             >
                 {isLoading ? (
-                    <Skeleton variant="text" width={50} height={18} />
+                    <Skeleton variant='text' width={50} height={18} />
                 ) : (
                     song.album.name
                 )}
@@ -82,7 +82,7 @@ export default function SongRow({ song, index, isLoading, spotifyApi }) {
                 }}
             >
                 {isLoading ? (
-                    <Skeleton variant="text" width={50} height={18} />
+                    <Skeleton variant='text' width={50} height={18} />
                 ) : (
                     formatTime(song.duration_ms)
                 )}

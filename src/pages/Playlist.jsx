@@ -26,7 +26,7 @@ export default function Playlist({ spotifyApi }) {
                 sx={{
                     width: '100%',
                     display: 'flex',
-                    background: 'linear-gradient( #f0790070, #121212)',
+                    background: 'linear-gradient(#f0790070, #121212)',
                     justifyContent: 'flex-start',
                     alignItems: 'center',
                     gap: 3,
@@ -34,8 +34,8 @@ export default function Playlist({ spotifyApi }) {
                 }}
             >
                 <Avatar
-                    variant="square"
-                    src={playlist?.images[0].url}
+                    variant='square'
+                    src={playlist?.images[0]?.url}
                     sx={{
                         boxShadow: 15,
                         width: { sx: '100%', md: 235 },
@@ -45,12 +45,12 @@ export default function Playlist({ spotifyApi }) {
                 <Box>
                     <Typography
                         sx={{
-                            fontSize: 14,
+                            fontSize: 18,
                             fontWeight: 'bold',
                             color: 'text.primary',
                         }}
                     >
-                        playlist
+                        Playlist
                     </Typography>
                     <Typography
                         sx={{

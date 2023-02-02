@@ -18,7 +18,7 @@ export default function SongTable({ songs, isLoading, spotifyApi }) {
                 <Grid item sx={{ flex: 1 }}>
                     Title
                 </Grid>
-                <Grid item xs={3} sx={{ display: { sx: 'none', md: 'flex' } }}>
+                <Grid item xs={3} sx={{ display: { xs: 'none', md: 'flex' } }}>
                     Album
                 </Grid>
                 <Grid
@@ -26,7 +26,7 @@ export default function SongTable({ songs, isLoading, spotifyApi }) {
                     xs={3}
                     sx={{ display: 'flex', justifyContent: 'flex-end' }}
                 >
-                    <AccessTimeRounded sx={{ width: 20, heigth: 20 }} />
+                    <AccessTimeRounded sx={{ width: 20, height: 20 }} />
                 </Grid>
             </Grid>
             {isLoading
