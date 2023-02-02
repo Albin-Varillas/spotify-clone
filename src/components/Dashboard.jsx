@@ -10,6 +10,7 @@ import { getPlaylist } from '../store/playlistSlice'
 import SpotifyWebApi from 'spotify-web-api-node'
 import { redirectURL } from '../config'
 import Player from './Player'
+import MobileNav from './MobileNav'
 
 export default function Dashboard() {
     const spotifyApi = new SpotifyWebApi({
@@ -45,16 +46,17 @@ export default function Dashboard() {
             <Box sx={{ flex: 1, overflowY: 'auto', display: 'flex' }}>
                 <Sidebar />
                 <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/library' element={<div>library</div>} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/library" element={<div>library</div>} />
                     <Route
-                        path='/playlist/:id'
+                        path="/playlist/:id"
                         element={<Playlist spotifyApi={spotifyApi} />}
                     />
                 </Routes>
             </Box>
 
             <Player spotifyApi={spotifyApi} />
+            <MobileNav />
         </Box>
     )
 }
