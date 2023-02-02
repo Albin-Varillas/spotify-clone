@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Stack, IconButton, Typography, Slider } from '@mui/material'
-import { SkipPrevious, SkipNext, PlayArrow } from '@mui/icons-material'
-import PlayerVolume from './PlayerVolume'
+import { SkipPrevious, SkipNext, PlayArrow, Pause } from '@mui/icons-material'
+import { formatTime } from '../utils/formatTime'
 
 export default function PlayerController({
     player,
     is_paused,
     duration,
-    progess,
+    progress,
 }) {
+    const [currentProgress, setCurrentProgress] = useState(progress / 1000)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (!is_paused && player) {
+                setCurrentProgress((c) => c + 1)
+            }
+        }, 1000)
+
+        return () => clearInterval(interval)
+    }, [is_paused, player])
+
+    useEffect(() => {
+        setCurrentProgress(progress / 1000)
+    }, [progress])
+
+    console.log(player)
+
     return (
         <Stack
             spacing={0}
@@ -24,7 +42,7 @@ export default function PlayerController({
             >
                 <IconButton
                     size="small"
-                    sx={{ color: 'text.secondary' }}
+                    sx={{ color: 'text.primary' }}
                     onClick={() => {
                         player.previousTrack()
                     }}
@@ -33,16 +51,20 @@ export default function PlayerController({
                 </IconButton>
                 <IconButton
                     size="small"
-                    sx={{ color: 'text.secondary' }}
+                    sx={{ color: 'text.primary' }}
                     onClick={() => {
                         player.togglePlay()
                     }}
                 >
-                    <PlayArrow sx={{ width: 28, height: 28 }} />
+                    {is_paused ? (
+                        <PlayArrow sx={{ width: 38, height: 38 }} />
+                    ) : (
+                        <Pause sx={{ width: 38, height: 38 }} />
+                    )}
                 </IconButton>
                 <IconButton
                     size="small"
-                    sx={{ color: 'text.secondary' }}
+                    sx={{ color: 'text.primary' }}
                     onClick={() => {
                         player.nextTrack()
                     }}
@@ -61,14 +83,25 @@ export default function PlayerController({
                     variant="body1"
                     sx={{ color: 'text.secondary', fontSize: 12 }}
                 >
-                    1:23
+                    {formatTime(currentProgress * 1000)}
                 </Typography>
-                <Slider size="medium" />
+                <Slider
+                    size="medium"
+                    min={0}
+                    value={currentProgress}
+                    max={duration / 1000}
+                    onChange={(_, v) => {
+                        setCurrentProgress(v)
+                    }}
+                    onChangeCommitted={(_, v) => {
+                        player.seek(v * 1000)
+                    }}
+                />
                 <Typography
                     variant="body1"
                     sx={{ color: 'text.secondary', fontSize: 12 }}
                 >
-                    3:34
+                    {formatTime(duration)}
                 </Typography>
             </Stack>
         </Stack>

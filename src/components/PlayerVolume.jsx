@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Grid, Stack, Slider } from '@mui/material'
-import { VolumeDown } from '@mui/icons-material'
+import { VolumeDown, VolumeUp, VolumeOff } from '@mui/icons-material'
 
-export default function PlayerVolume() {
+export default function PlayerVolume({ player }) {
+    const [volume, setVolume] = useState(50)
+
     return (
         <Grid
             item
@@ -19,8 +21,23 @@ export default function PlayerVolume() {
                 direction="row"
                 sx={{ width: 150, color: 'text.secondary' }}
             >
-                <VolumeDown />
-                <Slider min={0} max={100} step={1} />
+                {volume === 0 ? (
+                    <VolumeOff />
+                ) : volume <= 50 ? (
+                    <VolumeDown />
+                ) : (
+                    <VolumeUp />
+                )}
+                <Slider
+                    min={0}
+                    max={100}
+                    value={volume}
+                    onChange={(_, v) => setVolume(v)}
+                    onChangeCommitted={(_, v) => {
+                        player.setVolume(v / 100)
+                    }}
+                    step={1}
+                />
             </Stack>
         </Grid>
     )

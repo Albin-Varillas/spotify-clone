@@ -127,7 +127,7 @@ export default function Player({ spotifyApi }) {
                         player={localPlayer}
                     />
                 </Grid>
-                <PlayerVolume />
+                <PlayerVolume player={localPlayer} />
             </Grid>
         </Box>
     )
