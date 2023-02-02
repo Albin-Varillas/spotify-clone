@@ -64,7 +64,19 @@ export default function Playlist({ spotifyApi }) {
                 </Box>
             </Box>
 
-            <SongTable songs={playlist?.tracks.items} isLoading={isLoading} />
+            <SongTable
+                songs={playlist?.tracks.items.map((song, i) => ({
+                    ...song,
+                    track: {
+                        ...song.track,
+                        context_uri: `spotify:playlist:${id}`,
+                        position: i,
+                        offset: { position: i },
+                    },
+                }))}
+                isLoading={isLoading}
+                spotifyApi={spotifyApi}
+            />
         </Box>
     )
 }

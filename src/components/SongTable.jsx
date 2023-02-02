@@ -3,7 +3,7 @@ import { Box, Grid } from '@mui/material'
 import { AccessTimeRounded } from '@mui/icons-material'
 import SongRow from './SongRow'
 
-export default function SongTable({ songs, isLoading }) {
+export default function SongTable({ songs, isLoading, spotifyApi }) {
     return (
         <Box p={{ xs: 3, md: 4 }}>
             <Grid
@@ -34,7 +34,11 @@ export default function SongTable({ songs, isLoading }) {
                       .fill(0)
                       .map((_, index) => <SongRow isLoading index={index} />)
                 : songs?.map((song, index) => (
-                      <SongRow song={song.track} index={index} />
+                      <SongRow
+                          song={song.track}
+                          index={index}
+                          spotifyApi={spotifyApi}
+                      />
                   ))}
         </Box>
     )
