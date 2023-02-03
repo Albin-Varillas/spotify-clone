@@ -17,7 +17,7 @@ export default function PlayerOverlay({
             sx={{
                 bgcolor: 'background.paper',
                 position: 'fixed',
-                height: '100vh',
+                height: 'calc(100vh - 75px)',
                 transform: playerOverlayIsOpen
                     ? 'translateY(0px)'
                     : 'translateY(100vh)',
