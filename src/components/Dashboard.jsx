@@ -11,6 +11,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 import { redirectURL } from '../config'
 import Player from './Player'
 import MobileNav from './MobileNav'
+import Library from '../pages/Library'
 
 export default function Dashboard() {
     const spotifyApi = new SpotifyWebApi({
@@ -27,7 +28,7 @@ export default function Dashboard() {
 
         if (accessToken) {
             async function onMount() {
-                await spotifyApi.setAccessToken(accessToken)
+                spotifyApi.setAccessToken(accessToken)
                 dispatch(getPlaylist(spotifyApi))
             }
             onMount()
@@ -47,7 +48,7 @@ export default function Dashboard() {
                 <Sidebar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/library" element={<div>library</div>} />
+                    <Route path="/library" element={<Library />} />
                     <Route
                         path="/playlist/:id"
                         element={<Playlist spotifyApi={spotifyApi} />}
